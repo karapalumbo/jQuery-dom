@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 15px;
+      }
+
+      .container {
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Movie App!</h1>
+    <div class="container">
+      <input
+        class="title"
+        class="movie-info"
+        type="text"
+        placeholder="Movie Title"
+      />
+      <input
+        class="rating"
+        class="movie-info"
+        type="number"
+        placeholder="Movie Rating"
+      />
+      <button type="button" class="submit-btn">Submit</button>
+    </div>
+    <aside class="movie-list">
+      <ul></ul>
+    </aside>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $(".submit-btn").on("click", function () {
+        let title = $(".title").val();
+        let rating = $(".rating").val();
+        $("ul").append(
+          "<li>" +
+            title +
+            " " +
+            rating +
+            " " +
+            '<input type="button" value="Remove" id="remove" />' +
+            "</li>"
+        );
+      });
+      $("ul").on("click", "li", function () {
+        $(this).remove();
+      });
+    </script>
+  </body>
+</html>
